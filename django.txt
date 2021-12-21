@@ -1,0 +1,7 @@
+pip install -r requirements.txt - установка всего что надо
+pip freeze > requirements.txt - создание requirements.txt
+
+
+django-admin startproject 'project_name' - создание проекта
+python manage.py migrate - создание БД
+python manage.py runserver - запуск сервера
