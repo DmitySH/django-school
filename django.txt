@@ -1,7 +1,8 @@
 pip install -r requirements.txt - установка всего что надо
 pip freeze > requirements.txt - создание requirements.txt
+python -m venv 'vName' - создание venv
 
-
-django-admin startproject 'project_name' - создание проекта
+django-admin startproject 'name' - создание проекта
+python manage.py startapp 'name' - создание приложения
 python manage.py migrate - создание БД
 python manage.py runserver - запуск сервера
