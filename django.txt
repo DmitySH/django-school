@@ -7,3 +7,4 @@ python manage.py startapp 'name' - создание приложения
 python manage.py makemigrations - аналог контроля версий моделей БД
 python manage.py migrate - применение миграции
 python manage.py runserver - запуск сервера
+python manage.py createsuperuser - создание админа
