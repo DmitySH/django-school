@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.utils import timezone
 from django.db import models
 
@@ -73,6 +74,9 @@ class Movie(models.Model):
 
     url = models.SlugField(max_length=160, unique=True)
     draft = models.BooleanField('Черновик', default=False)
+
+    def get_absolute_url(self):
+        return reverse('movie_detail', kwargs={'slug': self.url})
 
     def __str__(self):
         return self.title
