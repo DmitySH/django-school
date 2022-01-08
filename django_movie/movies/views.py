@@ -11,6 +11,11 @@ class MovieView(ListView):
     queryset = Movie.objects.filter(draft=False)
     template_name = 'movies/movie_list.html'
 
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(*args, **kwargs)
+    #     context['categories'] = Category.objects.all()
+    #     return context
+
 
 class MovieDetailView(DetailView):
     model = Movie
