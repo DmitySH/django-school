@@ -46,12 +46,28 @@ class MovieAdmin(admin.ModelAdmin):
     save_on_top = True
     save_as = True
     list_editable = ('draft',)
-    fields = (('actors', 'directors', 'genres'), ('description',))
-    # fieldsets = (
-    #     (None, {
-    #         'fields': (('title', 'tagline'),)
-    #     })
-    # )
+    # fields = (('actors', 'directors', 'genres'), ('description',), ())
+    fieldsets = (
+        (None, {
+            "fields": (("title", "tag_line"),)
+        }),
+        (None, {
+            "fields": ("description", ("poster",))
+        }),
+        (None, {
+            "fields": (("year", "world_premiere", "country"),)
+        }),
+        ("Actors", {
+            "classes": ("collapse",),
+            "fields": (("actors", "directors", "genres", "category"),)
+        }),
+        (None, {
+            "fields": (("budget", "fees_in_usa", "fees_in_world"),)
+        }),
+        ("Options", {
+            "fields": (("url", "draft"),)
+        }),
+    )
 
     actions = ['publish', 'unpublish']
 
