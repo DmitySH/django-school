@@ -1,9 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    path('accounts/', include('allauth.urls')),
     path('', views.MovieView.as_view(), name='movie_list'),
     path('filter/', views.FilterMoviesView.as_view(), name='filter'),
+    path('search/', views.Search.as_view(), name='search'),
     path('<slug:slug>/', views.MovieDetailView.as_view(), name='movie_detail'),
     path('review/<int:pk>/', views.AddReview.as_view(), name='add_review'),
     path('actors/<str:slug>/', views.ActorView.as_view(), name='actor_detail'),

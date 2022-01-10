@@ -88,3 +88,13 @@ class AddStarRating(View):
             return redirect(movie.get_absolute_url())
         else:
             return HttpResponse(status=400)
+
+
+class Search(ListView):
+    def get_queryset(self):
+        return Movie.objects.filter(title__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
